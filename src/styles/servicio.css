@@ -1,0 +1,17 @@
+.card_contenedor{
+    width: 600px;
+    height: 300px;
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+
+.servicio_contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 80px ;
+
+}
+
+.card_contenedor strong{
+    color: rgb(137, 21, 172);
+}
