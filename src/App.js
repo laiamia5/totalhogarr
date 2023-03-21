@@ -7,6 +7,7 @@ import Home from './components/Home';
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import { TodosLosProductos } from './redux/actions';
+import Login from './components/Login'
 
 function App() {
   const dispatch = useDispatch()
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path='/servicio-tecnico' element={<Servicio/>}/>
         <Route path='/admin' element={<Admin/>}/>
+        <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Home/>}/>
       </Routes>
     </div>
