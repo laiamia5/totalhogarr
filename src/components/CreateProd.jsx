@@ -13,7 +13,7 @@ export default function CreateProd (){
     })
     const handleSubmit = async (e) => { 
         // e.preventDefault()
-        await axios.post('http://localhost:3001', input)
+        await axios.post('http://localhost:3001/products', input)
         //obtener el ultimo elemento del modelo products
     }
     const control = () => {

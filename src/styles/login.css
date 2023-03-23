@@ -1,14 +1,73 @@
+.contenedor_absoluto_login{
+    position: absolute;
+    z-index: -3773;
+    margin-left: 50px;
+}
 
+.contenedor_absoluto_signup{
+    position: absolute;
+    z-index: -3773;
+    margin-left: 700px;
+}
+
+.aside{
+    height: 85vh; 
+    width: 400px; 
+    /* background-color: rgb(67, 173, 214); */
+    background: rgb(91,186,213);
+background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(49,177,230,1) 100%);
+}
+
+.animacion_login{
+    animation-name: cambio;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+
+.animacion_signup{
+    animation-name: cambioSign;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes cambio {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(950px);
+    }
+}
+
+@keyframes cambioSign {
+    0%{
+        transform: translateX(950px);
+    }
+    100%{
+        transform: translateX(0);
+        
+    }
+}
 
 .login_titulo{
-    color: #909f6d; 
+    color: #2d8ecf; 
     margin-left: 300px;
     font-size: 40px;
     margin-top: 50px;
 }
 
+.signup_titulo{
+    color: #2d8ecf; 
+    margin-left: 30px;
+    font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
 .login_center{
-    margin-left: 300px;
+    margin-left: 270px;
     margin-top: 20px;
 }
 
@@ -20,11 +79,16 @@
     background-color: #fff; 
     margin-left: 10px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .login_button > img{
     width: 22px;
     margin-top: 5px;
+}
+
+.primer_button{
+    margin-left: 80px;
 }
 
 .login_contenedor_inputs{
@@ -36,7 +100,7 @@
 
 .login_input{
     width: 300px;
-    height: 35px;
+    height: 40px;
     margin-top: 10px;
     border-radius: 5px;
     border: none;
@@ -44,8 +108,12 @@
 }
 
 .login_input::placeholder {
-   padding-left: 20px;
    font-size: 15px;
+}
+
+.login_input{
+    padding-left: 20px;
+    font-size: 15px;
 }
 
  .login_input:focus{
@@ -55,9 +123,26 @@
 
  .login_button_ingresa{
     margin-top: 20px;
+    margin-left: 60px;
     border-radius: 20px;
     height: 40px;
     width: 150px;
     border: none;
-    background-color: #909f6d; ;
+    background-color: #93b7ec; 
+    cursor: pointer;
  }
+
+ .login_p_contraseña{
+    color: grey;
+    margin-left: 50px;
+    margin-bottom: 20px;
+ }
+
+ .login_p_mail{
+    color: grey;
+    margin-left: 30px;
+ }
+
+.display_none{
+    display: none;
+}

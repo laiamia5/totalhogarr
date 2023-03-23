@@ -1,4 +1,4 @@
-import {TODOS_PRODUCTOS} from './actions'
+import {TODOS_PRODUCTOS, CREAR_USUARIO} from './actions'
 
 const initialState = {
     todos: []
