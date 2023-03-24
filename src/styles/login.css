@@ -1,12 +1,11 @@
 .contenedor_absoluto_login{
     position: absolute;
-    z-index: -3773;
+    /* z-index: -3773; */
     margin-left: 50px;
 }
 
 .contenedor_absoluto_signup{
     position: absolute;
-    z-index: -3773;
     margin-left: 700px;
 }
 
@@ -88,7 +87,7 @@ background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(4
 }
 
 .primer_button{
-    margin-left: 80px;
+    margin-left: 100px;
 }
 
 .login_contenedor_inputs{
