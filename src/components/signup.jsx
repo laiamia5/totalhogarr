@@ -61,7 +61,6 @@ export default function Signup (){
             }else if (form.contraseña[i] == form.contraseña[i].toLowerCase()){ 
                 respuesta = respuesta + 'I'
             }
-            console.log(respuesta)
         }
        if(respuesta.includes('S') && respuesta.includes('I') && respuesta.includes('N')){
             setCorreccion({...correccion, contraseña: true})
@@ -75,6 +74,10 @@ export default function Signup (){
     let verificar = (prop) => {
         switch(prop){
             case 'nombre':
+                if(form.nombre.length === 0){
+                    setCorreccion({...correccion, nombre: null})
+                    return 'el campo es obligatorio'
+                }
                 if(form.nombre.length > 20) {
                     setCorreccion({...correccion, nombre: null})
                     return 'solo se permite un maximo de 20 letras'
@@ -119,8 +122,7 @@ export default function Signup (){
                     MayMin()
                     return true
                 }
-                //y que solo si todos los valores de correccion sean true se realice la peticion
-                // y tener el logo de error alado que especifique cual es el error
+                //que solo se muestren los errores cuando se haga focus en el input
             }
         }
     
@@ -157,7 +159,12 @@ export default function Signup (){
                     onChange={(e) =>{ 
                         setearForm('nombre', e.target.value)
                         verificar('nombre')
-                    }}/>
+                    }}
+                    onBlur={() => {
+                        verificar('nombre')
+                    }}
+                    />
+                    
                     {correccion.nombre == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
                     <input 
                     type="text"  
@@ -166,7 +173,12 @@ export default function Signup (){
                     onChange={(e) => {
                         setearForm('apellido', e.target.value)
                         verificar('apellido')
-                    }}/>
+                    }}
+                    onBlur={() => {
+                        verificar('apellido')
+                    }}
+                    />
+                    
                     {correccion.apellido == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
                     <input 
                     type="text" 
@@ -175,7 +187,11 @@ export default function Signup (){
                     onChange={(e) =>{ 
                         setearForm('email', e.target.value)
                         verificar('email')
-                    }}/>
+                    }}
+                    onBlur={() => {
+                        verificar('email')
+                    }}
+                    />
                     {correccion.email == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
                     <input 
                     type="password"  
@@ -184,7 +200,11 @@ export default function Signup (){
                     onChange={(e) =>{ 
                         setearForm('contraseña', e.target.value)
                         verificar('contraseña')
-                    }}/>
+                    }}
+                    onBlur={() => {
+                        verificar('contraseña')
+                    }}
+                    />
                     {correccion.contraseña == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
                 </div>
                 <button className="login_button_ingresa" onClick={() => {
