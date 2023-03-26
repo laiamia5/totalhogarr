@@ -7,10 +7,13 @@ import Home from './components/Home';
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import { TodosLosProductos } from './redux/actions';
-import Login from './components/Login'
+import Login from './components/Login';
+import {useLocation} from 'react-router-dom'
+
 
 function App() {
   const dispatch = useDispatch()
+  let location = useLocation()
   const productos = useSelector(state => state.todos)
 
   useEffect(() => {
@@ -20,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav/>
+      {location.pathname !== "/login" && <Nav/>}
       <Routes>
         <Route path='/servicio-tecnico' element={<Servicio/>}/>
         <Route path='/admin' element={<Admin/>}/>

@@ -27,12 +27,23 @@ export default function Login(){
     const peticion = () => {
         axios.post('http://localhost:3001/users/signin', input)
         .then((res) => {
-            console.log(res.data)
-            let convertir = JSON.stringify(res.data.id)
-            localStorage.setItem('usuario', convertir)
+            // const contentType = res.headers;
+            // const data = res.data
+            // console.log(contentType , 'header')
+            // let myHeaders = new Headers();
+            // myHeaders.append('token', 'res.data.data.token');
+
+            // console.log(res.headers)
         })
         .catch((err) => alert(err.response.data))
     }
+
+    const profile = () => {
+        axios.get('http://localhost:3001/profile')
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err))
+    }
+    //ver como mierda obtengo la cabecera de respuesta de la peticion de arriba y la uso para hacer la facking peticion
 
 
     return(
@@ -40,6 +51,8 @@ export default function Login(){
             <div className={clase}>
                 <button style={botonesAnimation} onClick={() => animaciones('login')}>iniciar sesion</button>
                 <button style={botonesAnimation}  onClick={() => animaciones('signup')}> registrarse </button>
+                <button style={botonesAnimation} >pagina principal</button>
+                <button onClick={() => profile()}>llevar al perfil</button>
             </div>
             {clase === 'aside animacion_signup' ? (
                 <Signup />
