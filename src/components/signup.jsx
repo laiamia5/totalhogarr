@@ -51,14 +51,19 @@ export default function Signup (){
 
         let respuesta = ''
         for (const i in form.contraseña){
-            if (form.contraseña[i] == form.contraseña[i].toUpperCase()){ 
+
+            if( isNaN(form.contraseña[i]) == false){
+                respuesta = respuesta + 'N'
+            }
+            else if (form.contraseña[i] == form.contraseña[i].toUpperCase()){ 
                 respuesta = respuesta + 'S'
 
             }else if (form.contraseña[i] == form.contraseña[i].toLowerCase()){ 
                 respuesta = respuesta + 'I'
             }
+            console.log(respuesta)
         }
-       if(respuesta.includes('S') && respuesta.includes('I')){
+       if(respuesta.includes('S') && respuesta.includes('I') && respuesta.includes('N')){
             setCorreccion({...correccion, contraseña: true})
        }
        else {
@@ -114,17 +119,22 @@ export default function Signup (){
                     MayMin()
                     return true
                 }
-                //falta agregar que contenga numeros
                 //y que solo si todos los valores de correccion sean true se realice la peticion
+                // y tener el logo de error alado que especifique cual es el error
             }
         }
     
 
     const sendForm = async () => {
-        if(form.email !== '' && form.contraseña !== '' && form.nombre !== '' && form.apellido !== ''){
+        if(correccion.email === true && correccion.contraseña === true  && correccion.apellido === true  && correccion.nombre === true ){
             axios.post('http://localhost:3001/users/signup', form )
-            .then((res) => alert(res.data))
+            .then((res) =>{ 
+                alert(res.data)
+                vaciar()
+            })
             .catch((err) => alert(err.response.data)) 
+        }else{
+            alert('debe completar los campos con las condiciones que se especifican')
         }
     }
 
@@ -140,26 +150,45 @@ export default function Signup (){
                 </button>
                 <p className="login_p_mail">o usa tu mail para registrarte</p>
                 <div className="login_contenedor_inputs">
-                    <input type="text" className={ correccion.nombre == null ? 'login_input_error': 'login_input'} placeholder="✿  Nombre" onChange={(e) =>{ 
+                    <input 
+                    type="text"
+                    className={ correccion.nombre == null ? 'login_input_error': 'login_input'} 
+                    placeholder="✿  Nombre" 
+                    onChange={(e) =>{ 
                         setearForm('nombre', e.target.value)
                         verificar('nombre')
-                        }}/>
-                    <input type="text"  className={ correccion.apellido == null ? 'login_input_error': 'login_input'}  placeholder="✿  Apellido" onChange={(e) => {
+                    }}/>
+                    {correccion.nombre == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
+                    <input 
+                    type="text"  
+                    className={ correccion.apellido == null ? 'login_input_error': 'login_input'}  
+                    placeholder="✿  Apellido" 
+                    onChange={(e) => {
                         setearForm('apellido', e.target.value)
                         verificar('apellido')
-                        }}/>
-                    <input type="text" className={ correccion.email == null ? 'login_input_error': 'login_input'} placeholder="✉  Email" onChange={(e) =>{ 
+                    }}/>
+                    {correccion.apellido == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
+                    <input 
+                    type="text" 
+                    className={ correccion.email == null ? 'login_input_error': 'login_input'} 
+                    placeholder="✉  Email" 
+                    onChange={(e) =>{ 
                         setearForm('email', e.target.value)
                         verificar('email')
-                        }}/>
-                    <input type="password"  className={ correccion.contraseña == null ? 'login_input_error': 'login_input'} placeholder="🔒︎  Contraseña" onChange={(e) =>{ 
+                    }}/>
+                    {correccion.email == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
+                    <input 
+                    type="password"  
+                    className={ correccion.contraseña == null ? 'login_input_error': 'login_input'} 
+                    placeholder="🔒︎  Contraseña" 
+                    onChange={(e) =>{ 
                         setearForm('contraseña', e.target.value)
                         verificar('contraseña')
-                        }}/>
+                    }}/>
+                    {correccion.contraseña == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
                 </div>
                 <button className="login_button_ingresa" onClick={() => {
                     sendForm()
-                    vaciar()
                     }}>INICIA</button>
             </div>
         </div>
