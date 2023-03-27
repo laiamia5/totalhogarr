@@ -5,6 +5,16 @@ import face from '../pics/face.png'
 import {useState} from 'react'
 import axios from 'axios'
 
+//ESTILOS----->
+//*centrar elementoos
+//*hacer bien la animacion
+//*dar estilos a botones de aside
+
+//FUNCION----->
+//*ver porque no se verifica cuando pego algo en el input
+//*poner los textos en la advertencias de error
+//*hacer que el input contraseña tenga un ojito para cambiar el type del pass de text a pass
+
 export default function Signup (){
     
     const [form , setForm] = useState({
@@ -41,10 +51,10 @@ export default function Signup (){
     }
 
     const [correccion , setCorreccion] = useState({
-        nombre: null,
-        apellido: null,
-        email: null,
-        contraseña: null
+        nombre: false,
+        apellido: false,
+        email: false,
+        contraseña: false
     })
 
     let MayMin = () => {
@@ -52,13 +62,13 @@ export default function Signup (){
         let respuesta = ''
         for (const i in form.contraseña){
 
-            if( isNaN(form.contraseña[i]) == false){
+            if( isNaN(form.contraseña[i]) === false){
                 respuesta = respuesta + 'N'
             }
-            else if (form.contraseña[i] == form.contraseña[i].toUpperCase()){ 
+            else if (form.contraseña[i] === form.contraseña[i].toUpperCase()){ 
                 respuesta = respuesta + 'S'
 
-            }else if (form.contraseña[i] == form.contraseña[i].toLowerCase()){ 
+            }else if (form.contraseña[i] === form.contraseña[i].toLowerCase()){ 
                 respuesta = respuesta + 'I'
             }
         }
@@ -122,10 +132,14 @@ export default function Signup (){
                     MayMin()
                     return true
                 }
-                //que solo se muestren los errores cuando se haga focus en el input
+                break
+            default :
+                break;
             }
         }
-    
+
+
+ 
 
     const sendForm = async () => {
         if(correccion.email === true && correccion.contraseña === true  && correccion.apellido === true  && correccion.nombre === true ){
@@ -136,7 +150,7 @@ export default function Signup (){
             })
             .catch((err) => alert(err.response.data)) 
         }else{
-            alert('debe completar los campos con las condiciones que se especifican')
+            alert('debe completar todos los campos con las condiciones que se especifican')
         }
     }
 
@@ -164,8 +178,7 @@ export default function Signup (){
                         verificar('nombre')
                     }}
                     />
-                    
-                    {correccion.nombre == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
+                    {correccion.nombre == null && <button className="login_button_error">!</button>}
                     <input 
                     type="text"  
                     className={ correccion.apellido == null ? 'login_input_error': 'login_input'}  
@@ -178,8 +191,7 @@ export default function Signup (){
                         verificar('apellido')
                     }}
                     />
-                    
-                    {correccion.apellido == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
+                    {correccion.apellido == null && <button className="login_button_error">!</button> }
                     <input 
                     type="text" 
                     className={ correccion.email == null ? 'login_input_error': 'login_input'} 
@@ -192,7 +204,7 @@ export default function Signup (){
                         verificar('email')
                     }}
                     />
-                    {correccion.email == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
+                    {correccion.email == null && <button className="login_button_error">!</button>}
                     <input 
                     type="password"  
                     className={ correccion.contraseña == null ? 'login_input_error': 'login_input'} 
@@ -205,7 +217,7 @@ export default function Signup (){
                         verificar('contraseña')
                     }}
                     />
-                    {correccion.contraseña == null ? <button className="login_button_error">!</button> : <button className="login_button_check">✓</button>}
+                    {correccion.contraseña == null && <button className="login_button_error">!</button> }
                 </div>
                 <button className="login_button_ingresa" onClick={() => {
                     sendForm()
@@ -214,5 +226,3 @@ export default function Signup (){
         </div>
     )
 }
-
-let estilo = {border: '1px solid red'}
