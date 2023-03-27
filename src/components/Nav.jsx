@@ -10,6 +10,7 @@ export default function Nav () {
                 <Link to='/servicio-tecnico'><li>servicio tecnico</li></Link>
                 <Link to='/admin'><li>admin</li></Link>
                 <Link to='/login'><li>login</li></Link>
+                <Link to='/profile'><li>profile</li></Link>
             </ul>
         </div>
     )

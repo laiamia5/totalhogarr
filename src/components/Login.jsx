@@ -6,13 +6,20 @@ import Signup from './signup'
 import '../pics/circulos.png'
 import React, { useState } from 'react';
 import axios from 'axios'
+import { useNavigate } from "react-router"
+import { obtenerUsuario } from "../redux/actions"
+import { useDispatch, useSelector } from "react-redux"
+import { logearUsuario } from "../redux/actions"
 
 export default function Login(){
 
+    const navegate = useNavigate()
+    const dispatch = useDispatch()
+    const usuarioo = useSelector(state => state.token)
     const [clase, setClase] = useState('aside animacion_signup')
     const [input, setInput] = useState({
         email: '',
-        password: ''
+        contraseña: ''
     })
 
     const animaciones = (val) => {
@@ -24,35 +31,18 @@ export default function Login(){
         }
     }
 
-    const peticion = () => {
-        axios.post('http://localhost:3001/users/signin', input)
-        .then((res) => {
-            // const contentType = res.headers;
-            // const data = res.data
-            // console.log(contentType , 'header')
-            // let myHeaders = new Headers();
-            // myHeaders.append('token', 'res.data.data.token');
-
-            // console.log(res.headers)
-        })
-        .catch((err) => alert(err.response.data))
+    const peticion = async () => {
+        dispatch(logearUsuario(input))
+        navegate('/profile')
     }
-
-    const profile = () => {
-        axios.get('http://localhost:3001/profile')
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err))
-    }
-    //ver como mierda obtengo la cabecera de respuesta de la peticion de arriba y la uso para hacer la facking peticion
-
 
     return(
         <div style={{display: "flex"}}>
             <div className={clase}>
                 <button style={botonesAnimation} onClick={() => animaciones('login')}>iniciar sesion</button>
                 <button style={botonesAnimation}  onClick={() => animaciones('signup')}> registrarse </button>
-                <button style={botonesAnimation} >pagina principal</button>
-                <button onClick={() => profile()}>llevar al perfil</button>
+                <button style={botonesAnimation} onClick={() => navegate('/')}>pagina principal</button>
+                <button onClick={() => navegate('/profile')}>entrar</button>
             </div>
             {clase === 'aside animacion_signup' ? (
                 <Signup />
