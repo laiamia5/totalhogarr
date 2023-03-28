@@ -9,6 +9,10 @@
     /* display: inline-block; */
 }
 
+.contenedor_padre{
+    margin-top: 50px;
+}
+
 .contenedor_card{
     width: 280px;
     height: 100%;

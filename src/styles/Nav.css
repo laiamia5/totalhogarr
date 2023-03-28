@@ -28,13 +28,15 @@
 }
 
 .contenedor_searchbar input{
-    margin-left: 100px;
+    margin-left: 300px;
     width: 300px;
     height: 35px;
     border-radius: 15px;
     border: 1px solid rgb(163, 163, 163);
     padding-left: 10px;
-
+    font-size: 15px;
+    margin-bottom: 30px;
+   
 }
 
 .contenedor_searchbar input:focus{
@@ -44,4 +46,32 @@
 
 .contenedor_searchbar input::placeholder{
     padding-left: 10px;
+}
+
+.contenedor_searchbar button{
+    background-color: inherit;
+    border: none;
+    outline: none;
+    position: absolute;
+    margin-left: 765px;
+    margin-top: 5px;
+    border-left: 1px solid rgb(177, 177, 177);
+    padding-left: 10px;
+}
+
+.searchbar_icons_perfil{
+    margin-left: 380px;
+    opacity: 0.5;
+    margin-top: 10px;
+}
+
+.searchbar_icons_corazon{
+    opacity: 0.5;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.searchbar_icons_carrito{
+    margin-left: 25px;
+    margin-top: 10px;
 }

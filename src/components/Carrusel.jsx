@@ -5,7 +5,6 @@ export default function Carrusel (){
     return(
         <div className="contenedor_padre">
             <h1 className="titulo_Carrusel">celulares a la venta</h1>
-            <hr />
             <div className="contenedor_carrusel">
                 <div className="contenedor_card">
                     <p className="card_categoria">Celulares Reacondicionados</p>
