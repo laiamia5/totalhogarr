@@ -5,6 +5,12 @@ import {Link} from 'react-router-dom'
 export default function Nav () {
     return(
         <div className="Nav_contenedor">
+            <div className='contenedor_searchbar'>
+                <h1>TOTAL HOGAR</h1>
+                <input className="searchbar_input" type="text" placeholder="buscar . . ." />
+                <button>send</button>
+            </div>
+            <hr />
             <ul>
                 <Link to='/'><li>Home</li></Link>
                 <Link to='/servicio-tecnico'><li>servicio tecnico</li></Link>

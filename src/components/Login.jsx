@@ -21,6 +21,7 @@ export default function Login(){
         email: '',
         contraseña: ''
     })
+    const [loading, setLoading] = useState(false)
 
     const animaciones = (val) => {
         if(val === 'login') {
@@ -40,12 +41,11 @@ export default function Login(){
     }
 
     return(
-        <div style={{display: "flex"}}>
+        <div style={{display: "flex"}} className='contenedor_login_absoluto_todo'>
             <div className={clase}>
-                <button style={botonesAnimation} onClick={() => animaciones('login')}>iniciar sesion</button>
-                <button style={botonesAnimation}  onClick={() => animaciones('signup')}> registrarse </button>
-                <button style={botonesAnimation} onClick={() => navegate('/')}>pagina principal</button>
-                <button onClick={() => navegate('/profile')}>entrar</button>
+                <button className="botonesAnimation" onClick={() => animaciones('login')}>iniciar sesion</button>
+                <button className="botonesAnimation" onClick={() => animaciones('signup')}> registrarse </button>
+                <button className="botonesAnimation" onClick={() => navegate('/')}>inicio</button>
             </div>
             {clase === 'aside animacion_signup' ? (
                 <Signup />
@@ -65,7 +65,20 @@ export default function Login(){
                             <input type="password" className="login_input" placeholder="🔒︎  Contraseña" onChange={(e) => setInput({...input, contraseña: e.target.value})}/>
                         </div>
                         <p className="login_p_contraseña">olvidaste tu contraseña?</p>
-                        <button className="login_button_ingresa" onClick={() => peticion()}>INICIA</button>  
+                        {loading === false 
+                        ? <button className="login_button_ingresa" onClick={() =>{ 
+                            peticion();
+                            setLoading(true)
+                            }}>INICIA</button>  
+                        :   (
+                            <div class="load-3">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                            )
+                        }
+                       
                     </div>
                 </div> 
             )}
@@ -76,4 +89,3 @@ export default function Login(){
 
 
 
-const botonesAnimation = {width: "100px", height: "30px"}

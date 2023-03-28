@@ -1,21 +1,31 @@
+
+
 .contenedor_absoluto_login{
     position: absolute;
-    /* z-index: -3773; */
-    margin-left: 50px;
+    /* margin-left: 40px; */
+    margin-top: 60px;
+    background-color: white;
+    height: 100vh;
+    width: 60%;
+
 }
 
 .contenedor_absoluto_signup{
     position: absolute;
     margin-left: 700px;
+    margin-top: 40px;
+    background-color: white;
+    height: 100vh;
 }
 
 .aside{
     height: 100vh; 
-    width: 400px; 
-    z-index: 33333;
-    /* background-color: rgb(67, 173, 214); */
-    background: rgb(91,186,213);
-background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(49,177,230,1) 100%);
+    width: 500px; 
+    z-index: 337777333;
+    background-image : url('../pics/blue.png');
+    background-size:cover;
+    /* background: rgb(91,186,213); */
+    /* background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(49,177,230,1) 100%); */
 }
 
 .animacion_login{
@@ -37,13 +47,13 @@ background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(4
         transform: translateX(0);
     }
     100%{
-        transform: translateX(950px);
+        transform: translateX(850px);
     }
 }
 
 @keyframes cambioSign {
     0%{
-        transform: translateX(950px);
+        transform: translateX(850px);
     }
     100%{
         transform: translateX(0);
@@ -175,3 +185,51 @@ background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(4
     margin-left: 8px;
 }
 
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #2d8ecf;
+    margin-left: -50px;
+  }
+
+  .load-3{
+    margin-left: 220px;
+    margin-top: 40px;
+  }
+
+  .load-3 .line:nth-last-child(1) {
+    animation: loadingC 0.6s 0.1s linear infinite;
+  }
+  .load-3 .line:nth-last-child(2) {
+    animation: loadingC 0.6s 0.2s linear infinite;
+  }
+  .load-3 .line:nth-last-child(3) {
+    animation: loadingC 0.6s 0.3s linear infinite;
+  }
+
+  @keyframes loadingC {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(0, 15px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  /* ---------------------botones aside-------------------- */
+
+  .botonesAnimation{
+    width: 100px;
+    height: 32px;
+    background-color: inherit;
+    border: 1px solid white;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-top: 20px;
+    color: white;
+  }
