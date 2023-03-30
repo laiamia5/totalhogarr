@@ -1,6 +1,5 @@
 import './App.css';
 import Nav from './components/Nav'
-import Servicio from './components/Servicio';
 import Admin from './components/Admin'
 import {Routes, Route} from "react-router-dom"
 import Home from './components/Home';
@@ -26,7 +25,6 @@ function App() {
     <div className="App">
       {location.pathname !== "/login" && <Nav/>}
       <Routes>
-        <Route path='/servicio-tecnico' element={<Servicio/>}/>
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/profile' element={<Profile/>}/>

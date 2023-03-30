@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'
+import '../styles/create.css'
 
 export default function CreateProd (){
 
@@ -21,11 +22,11 @@ export default function CreateProd (){
     }
     return(
         <>
-        <h1>crear producto</h1>
-            <form action="" style={display}>
-                <input type="text" placeholder="producto" style={inputStyle} onChange={(e) => setInput({...input, nombre: e.target.value})}/>
-                <input type="number" placeholder="precio" style={inputStyle} onChange={(e) => setInput({...input, precio:  Number(e.target.value)})}/>
-                <select class="form-select" aria-label="Default select example" style={inputStyle} onChange={(e) => setInput({...input, categoria: e.target.value})}>
+        <h1 className="create_titulo">crear producto</h1>
+            <form className='create_form'action="" style={display}>
+                <input type="text" placeholder="producto" onChange={(e) => setInput({...input, nombre: e.target.value})}/>
+                <input type="number" placeholder="precio"  onChange={(e) => setInput({...input, precio:  Number(e.target.value)})}/>
+                <select class="form-select" aria-label="Default select example"   onChange={(e) => setInput({...input, categoria: e.target.value})}>
                     <option selected>selecciona una categoria</option>
                     <option value="Celulares Nuevos">Celulares Nuevos</option>
                     <option value="Celulares Reacondicionados">Celulares Reacondicionados</option>
@@ -36,21 +37,21 @@ export default function CreateProd (){
                     <option value="Auriculares">Auriculares</option>
                     <option value="Lavarropas">Lavarropas</option>
                 </select>
-                <input type="number" placeholder="stock" style={inputStyle} onChange={(e) => setInput({...input, stock: Number(e.target.value) })}/>
-                <input type="text" placeholder="marca" style={inputStyle} onChange={(e) => setInput({...input, marca: e.target.value})}/>
-                <textarea style={textarea} placeholder="descripcion, recuerda poner una coma luego de cada caracteristica de otra forma no se tomara como una lista" onChange={(e) => setInput({...input, descripcion: e.target.value})}></textarea>
-            </form>
-
-            <button onClick={() => {
+                <input type="number" placeholder="stock" onChange={(e) => setInput({...input, stock: Number(e.target.value) })}/>
+                <input type="text" placeholder="marca" onChange={(e) => setInput({...input, marca: e.target.value})}/>
+                <textarea placeholder="descripcion, recuerda poner una coma luego de cada caracteristica de otra forma no se tomara como una lista" onChange={(e) => setInput({...input, descripcion: e.target.value})}></textarea>
+                <button onClick={() => {
                 control();
                 handleSubmit();
-            }}  style={inputStyle}>enviar</button>
+                }}  >enviar</button>
+            </form>
+
+            
 
         </>
     )
 }
 
-const display = {display: 'flex', flexDirection: "column", marginLeft: "40%"}
-const inputStyle = {width: '200px', marginTop: '20px'}
+const display = {display: 'flex', flexWrap: 'wrap'}
 const textarea = {width: "200px", height: "200px",  resize: 'none', marginTop: '20px'}
 

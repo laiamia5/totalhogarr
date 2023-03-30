@@ -1,0 +1,76 @@
+.create_titulo{
+    margin-left: 38%;
+}
+
+.create_form{
+    width: 700px;
+    margin-left: 300px;
+    margin-top: 30px;
+}
+
+.create_form input, select{
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid rgb(206, 205, 205);
+    padding-left: 10px;
+    margin-top: 20px;
+    background-color: rgb(245, 244, 244);
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.create_form textarea{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid rgb(206, 205, 205);
+    padding-left: 10px;
+    margin-top: 20px;
+    background-color: rgb(245, 244, 244);
+    margin-left: 20px;
+    font-size: 15px;
+    resize: none;
+}
+
+.create_form input:focus::placeholder{
+    color: rgb(235, 117, 215);
+}
+
+.create_form input:focus{
+    border: 1px solid rgb(235, 117, 215);
+}
+
+.create_form textarea:focus::placeholder{
+    color: rgb(235, 117, 215);
+}
+
+.create_form textarea:focus{
+    border: 1px solid rgb(235, 117, 215);
+}
+
+.create_form select:focus{
+    color: rgb(235, 117, 215);
+}
+
+.create_form select:focus{
+    border: 1px solid rgb(235, 117, 215);
+}
+
+.create_form button{
+    width: 200px;
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid white;
+    background-color:  rgb(235, 117, 215);
+    cursor: pointer;
+    transition: .5s;
+    color: white;
+    margin-top: 10%;
+}
+
+.create_form button:hover{
+    background-color: rgb(201, 109, 185);
+}

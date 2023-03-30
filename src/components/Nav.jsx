@@ -22,7 +22,6 @@ export default function Nav () {
             <hr style={{opacity: "0.5"}}/>
             <ul>
                 <Link to='/'><li>Home</li></Link>
-                <Link to='/servicio-tecnico'><li>servicio tecnico</li></Link>
                 <Link to='/admin'><li>admin</li></Link>
                 <Link to='/login'><li>login</li></Link>
             </ul>
