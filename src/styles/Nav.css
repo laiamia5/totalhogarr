@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: row;
    padding-top: 15px;
+   margin-left: 160px;
 }
 
 .contenedor_searchbar{
@@ -28,7 +29,7 @@
 }
 
 .contenedor_searchbar input{
-    margin-left: 300px;
+    margin-left: 200px;
     width: 300px;
     height: 35px;
     border-radius: 15px;
@@ -53,20 +54,20 @@
     border: none;
     outline: none;
     position: absolute;
-    margin-left: 765px;
+    margin-left: 795px;
     margin-top: 5px;
     border-left: 1px solid rgb(177, 177, 177);
     padding-left: 10px;
 }
 
 .searchbar_icons_perfil{
-    margin-left: 380px;
-    opacity: 0.5;
+    margin-left: 280px;
+    /* opacity: 0.5; */
     margin-top: 10px;
 }
 
 .searchbar_icons_corazon{
-    opacity: 0.5;
+    /* opacity: 0.5; */
     margin-left: 25px;
     margin-top: 10px;
 }
@@ -74,4 +75,72 @@
 .searchbar_icons_carrito{
     margin-left: 25px;
     margin-top: 10px;
+    filter: brightness(5%); 
 }
+
+.nav_logo{
+    width: 140px;
+    position: absolute;
+    top: 2px;
+    margin-left: 20px;
+}
+
+
+.nav_mini_carrusel{
+    padding-top: 5px;
+    color: white;
+    /* animation-name: minicarrusel;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-direction: alternate-reverse;
+    display: flex;
+    flex-direction: row; */
+}
+
+.nav_contenedor_mini_carru{
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    -webkit-animation: scroll 160s linear infinite;
+    animation: scroll 160s linear infinite;
+    display: flex;
+    flex-direction: row;
+    width: calc(500px * 14);
+    animation-direction: alternate-reverse;
+}
+/* //_----------------------------------- */
+
+/* @keyframes minicarrusel {
+    0%{
+        transform: translate(1000px);
+
+    }
+    100%{
+        transform: translate(0px);
+
+    }
+} */
+
+
+@-webkit-keyframes scroll {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(calc(-250px * 7));
+              transform: translateX(calc(-250px * 7));
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(calc(-250px * 7));
+              transform: translateX(calc(-250px * 7));
+    }
+  }

@@ -22,10 +22,9 @@
     height: 100vh; 
     width: 500px; 
     z-index: 337777333;
-    background-image : url('../pics/blue.png');
     background-size:cover;
-    /* background: rgb(91,186,213); */
-    /* background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(49,177,230,1) 100%); */
+    background: rgb(91,186,213);
+    background: linear-gradient(0deg, rgba(91,186,213,0.8323704481792717) 0%, rgba(49,177,230,1) 100%);
 }
 
 .animacion_login{

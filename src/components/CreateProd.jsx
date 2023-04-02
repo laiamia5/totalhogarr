@@ -11,6 +11,7 @@ export default function CreateProd (){
         descripcion: '',
         marca: '',
         stock: '',
+        img: ''
     })
     const handleSubmit = async (e) => { 
         // e.preventDefault()
@@ -38,6 +39,7 @@ export default function CreateProd (){
                     <option value="Lavarropas">Lavarropas</option>
                 </select>
                 <input type="number" placeholder="stock" onChange={(e) => setInput({...input, stock: Number(e.target.value) })}/>
+                <input type="text" placeholder="imagen" onChange={(e) => setInput({...input, img: e.target.value })}/>
                 <input type="text" placeholder="marca" onChange={(e) => setInput({...input, marca: e.target.value})}/>
                 <textarea placeholder="descripcion, recuerda poner una coma luego de cada caracteristica de otra forma no se tomara como una lista" onChange={(e) => setInput({...input, descripcion: e.target.value})}></textarea>
                 <button onClick={() => {
