@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from 'axios'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUsuario } from "../../redux/actions";
 
 export default function Profile (){
-
+    const dispatch = useDispatch()
    const token = useSelector( state => state.token )
-   const [datos, setDatos] = useState({
-        nombre: null,
-        apellido: null,
-        email: null
-   })
+   const [datos, setDatos] = useState(token)
 
     useEffect(() => {
         axios.get(`http://localhost:3001/users/profile/${token.id}`,
@@ -19,7 +16,7 @@ export default function Profile (){
             }})
         .then((res) => {
             console.log(res.data)
-            setDatos({email: res.data.email, apellido: res.data.apellido, nombre: res.data.nombre})
+            setDatos(res.data)
         })
         .catch((err) => console.log(err.response.data))
     }, [])
@@ -28,9 +25,15 @@ export default function Profile (){
     return(
         <>
             profileeeeeeeeeeeeee de 
-            <h1>{datos.nombre}</h1>
-            <h2>{datos.apellido}</h2>
-            <h2>{datos.email}</h2>
+            <h1>{datos?.nombre}</h1>
+            <h2>{datos?.apellido}</h2>
+            <h2>{datos?.email}</h2>
+            <button onClick={() => {
+                dispatch(logoutUsuario());
+                console.log(token)
+                }}>
+                cerrar sesion
+            </button>
         </>
     )
 }

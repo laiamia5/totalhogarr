@@ -34,10 +34,11 @@ export default function Login(){
 
     const peticion = async () => {
         dispatch(logearUsuario(input))
+        navegate('/profile')
 
-        setTimeout(() => {
-            navegate('/profile')
-        }, 3000)
+        // setTimeout(() => {
+        //     navegate('/profile')
+        // }, 3000)
     }
 
     return(
