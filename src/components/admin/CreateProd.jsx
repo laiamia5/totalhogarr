@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'
-import '../styles/create.css'
+import '../../styles/create.css'
 
 export default function CreateProd (){
 
@@ -15,7 +15,7 @@ export default function CreateProd (){
     })
     const handleSubmit = async (e) => { 
         // e.preventDefault()
-        await axios.post('http://localhost:3001/products', input)
+        await axios.post('http://localhost:3001/productos', input)
         //obtener el ultimo elemento del modelo products
     }
     const control = () => {

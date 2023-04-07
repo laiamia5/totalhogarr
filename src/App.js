@@ -1,12 +1,12 @@
 import './App.css';
 import Nav from './components/Nav'
-import Admin from './components/Admin'
+import Admin from './components/admin/Admin'
 import {Routes, Route} from "react-router-dom"
 import Home from './components/Home';
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import { TodosLosProductos } from './redux/actions';
-import Login from './components/Login';
+import Login from './components/session/Login';
 import Profile from './components/session/Profile'
 import {useLocation} from 'react-router-dom'
 import Carrito from './components/Carrito'

@@ -1,15 +1,15 @@
 // import React from "react";
-import mail from "../pics/google.png"
-import face from '../pics/face.png'
-import '../styles/login.css'
+import mail from "../../pics/google.png"
+import face from '../../pics/face.png'
+import '../../styles/login.css'
 import Signup from './signup'
-import '../pics/circulos.png'
+import '../../pics/circulos.png'
 import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from "react-router"
-import { obtenerUsuario } from "../redux/actions"
+import { obtenerUsuario } from "../../redux/actions"
 import { useDispatch, useSelector } from "react-redux"
-import { logearUsuario } from "../redux/actions"
+import { logearUsuario } from "../../redux/actions"
 
 export default function Login(){
 

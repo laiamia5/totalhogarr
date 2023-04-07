@@ -1,14 +1,9 @@
 import React from "react"
-import '../styles/login.css'
-import mail from "../pics/google.png"
-import face from '../pics/face.png'
+import '../../styles/login.css'
+import mail from "../../pics/google.png"
+import face from '../../pics/face.png'
 import {useState} from 'react'
 import axios from 'axios'
-
-//ESTILOS----->
-//*centrar elementoos
-//*hacer bien la animacion
-//*dar estilos a botones de aside
 
 //FUNCION----->
 //*ver porque no se verifica cuando pego algo en el input

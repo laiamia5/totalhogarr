@@ -1,0 +1,14 @@
+.admin_contenedor_botones{
+    display: flex;
+}
+
+.admin_contenedor_botones > button{
+    width: 120px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: rgb(179, 175, 175);
+    border: 1px solid  black;
+    outline: none;
+    margin-left: 15px;
+    margin-top: 10px;
+}

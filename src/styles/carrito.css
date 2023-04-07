@@ -1,0 +1,36 @@
+.contenedor_card_carrito{
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-left: 50px;
+    display: flex;
+}
+
+.card_carrito_img{
+    width: 70px;
+    margin-left: 20px;
+}
+
+.card_carrito_button{
+    float: right;
+}
+
+.card_carrito_precio{
+    font-size: 30px;
+    color: black;
+    margin-left: 40px;
+}
+
+.card_carrito_finalizar{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(193, 228, 233);
+    cursor: pointer;
+    margin-top: 60px;
+    box-shadow: 11px 24px 7px -14px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 11px 24px 7px -14px rgba(0,0,0,0.16);
+    -moz-box-shadow: 11px 24px 7px -14px rgba(0,0,0,0.16);
+}

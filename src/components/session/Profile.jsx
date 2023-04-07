@@ -19,7 +19,7 @@ export default function Profile (){
             setDatos(res.data)
         })
         .catch((err) => console.log(err.response.data))
-    }, [])
+    }, [token])
 
 
     return(
