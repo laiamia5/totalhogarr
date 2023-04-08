@@ -59,7 +59,7 @@
     border: 1px solid rgb(235, 117, 215);
 }
 
-.create_form button{
+.create_button_send{
     width: 200px;
     height: 45px;
     border-radius: 10px;
@@ -71,6 +71,6 @@
     margin-top: 10%;
 }
 
-.create_form button:hover{
+.create_button_send:hover{
     background-color: rgb(201, 109, 185);
 }

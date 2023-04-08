@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import '../../styles/create.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CreateProd (){
+
+    const showToastMessage = () => {
+        toast.success('producto creado exitosamente!', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    }
 
     const [input , setInput] = useState({
         nombre: '',
@@ -42,14 +50,13 @@ export default function CreateProd (){
                 <input type="text" placeholder="imagen" onChange={(e) => setInput({...input, img: e.target.value })}/>
                 <input type="text" placeholder="marca" onChange={(e) => setInput({...input, marca: e.target.value})}/>
                 <textarea placeholder="descripcion, recuerda poner una coma luego de cada caracteristica de otra forma no se tomara como una lista" onChange={(e) => setInput({...input, descripcion: e.target.value})}></textarea>
-                <button onClick={() => {
+                <button className="create_button_send" onClick={() => {
                 control();
                 handleSubmit();
+                showToastMessage()
                 }}  >enviar</button>
+                <ToastContainer />
             </form>
-
-            
-
         </>
     )
 }

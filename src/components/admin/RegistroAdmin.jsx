@@ -17,17 +17,16 @@ export default function RegistroAdmin(){
 
     return(
         <div style={{display: "flex"}}>
-        ddddddddddddddddddddddddd
             {estado?.map((e, index) => {
             return(
-                <div key={index} style={{backgroundColor: 'black', marginLeft: '20px', width: "200px", height: "200px"}}>
+                <div key={index} style={{marginTop:"20px", backgroundColor: 'black', marginLeft: '20px', width: "200px", height: "200px"}}>
                     <h3>pedido</h3>
+                    <p>producto: {e.producto.nombre}</p>
                     <p>cantidad: {e.cantidad}</p>
-                        <p>direccion: {e.direccion}</p>
-                        <p>producto: {e.producto.nombre}</p>
-                        <p> cliente: {e.usuario.nombre}</p> 
-                        <p> entrega : {e.entrega}</p>
-                        <p> pago : {e.pago}</p>
+                    <p>cliente: {e.usuario.nombre + ' ' + e.usuario.apellido}</p> 
+                    <p>direccion: {e.direccion}</p>
+                    <p>entrega : {e.entrega}</p>
+                    <p>pago : {e.pago}</p>
                 </div>
                 )
                 
