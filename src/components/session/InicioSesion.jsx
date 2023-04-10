@@ -22,7 +22,7 @@ export default function InicioSesion (){
         email: '',
         contraseña: ''
     })
-    //poner la opcion en profile de cerrar sesion
+
     //si estoy logeado y pongo la personita que entre a mi perfil, si no estoy logeado que me lleve a iniciar sesion
     const peticion = async () => {
        axios.post(`http://localhost:3001/usuarios/signin`, input)
@@ -35,21 +35,43 @@ export default function InicioSesion (){
        .catch((err) => alert(err.response.data))
     }
 
+
+    //-----------------------------REGISTRO--------------------------------
+    //hacer formulario controlado
+    const [registro, setRegistro] = useState({
+        email: "",
+        contraseña: "",
+        nombre: "",
+        dni: 1234567
+    })
+    
+    const handleRegistro = async () => {
+        if(registro.email !== ""){
+            axios.post('http://localhost:3001/usuarios/signup', registro )
+            .then((res) =>{ 
+                console.log(res.data)
+            })
+            .catch((err) => alert(err.response.data)) 
+        }else{
+            alert('debe completar todos los campos con las condiciones que se especifican')
+        }
+    }
+
     return(
         <div className="body_inicioSesion">
 
         <div class={clases} id="container">
             <div class="form-container sign-up-container">
-                <form action="#">
+                <form action="#"  onSubmit={handleRegistro}>
                     <h1>Crea tu cuenta</h1>
                     <div class="social-container">
                         <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     </div>
                     <span>o usa tu email para registrarte</span>
-                    <input type="text" placeholder="Nombre" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Contraseña" />
+                    <input type="text" placeholder="Nombre" onChange={(e) =>  setRegistro({...registro, nombre: e.target.value})}/>
+                    <input type="email" placeholder="Email" onChange={(e) =>  setRegistro({...registro, email: e.target.value})} />
+                    <input type="password" placeholder="Contraseña" onChange={(e) =>  setRegistro({...registro, contraseña: e.target.value})}/>
                     <button>Registrarse</button>
                 </form>
             </div>

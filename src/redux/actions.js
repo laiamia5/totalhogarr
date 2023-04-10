@@ -4,6 +4,7 @@ export const LOGEAR_USUARIO = 'LOGEAR_USUARIO';
 export const LOGOUT_USUARIO = 'LOGOUT_USUARIO';
 export const AGREGAR_AL_CARRITO = 'AGREGAR_AL_CARRITO';
 export const ELIMINAR_DEL_CARRITO = 'ELIMINAR_DEL_CARRITO'
+export const VACIAR_CARRITO = 'VACIAR_CARRITO'
 
 export const TodosLosProductos = () => async (dispatch) => {
     return fetch(`http://localhost:3001/productos`)
@@ -30,6 +31,10 @@ export const agregarAlCarrito = (id) => async (dispatch) => {
 
 export const eliminarDelCarrito = (id) => async (dispatch) => {
     return dispatch({type: ELIMINAR_DEL_CARRITO, payload: id })
+}
+
+export const vaciarCarrito = () => async (dispatch) => {
+    return dispatch({type: VACIAR_CARRITO, payload: 'algo' })
 }
 
 

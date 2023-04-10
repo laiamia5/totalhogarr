@@ -3,7 +3,8 @@ import {
     LOGEAR_USUARIO, 
     LOGOUT_USUARIO, 
     AGREGAR_AL_CARRITO, 
-    ELIMINAR_DEL_CARRITO
+    ELIMINAR_DEL_CARRITO,
+    VACIAR_CARRITO
 } from './actions'
 
 let storage = localStorage.getItem('carrito')
@@ -40,6 +41,11 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 carrito: state.carrito.filter((e) => e !== action.payload )
+            }
+        case VACIAR_CARRITO:
+            return{
+                ...state,
+                carrito: []
             }
         default :
             return state

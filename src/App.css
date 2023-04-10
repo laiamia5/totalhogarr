@@ -1,11 +1,12 @@
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Great+Vibes&family=Parisienne&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Great+Vibes&family=Parisienne&family=Rubik&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Great+Vibes&family=Parisienne&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Great+Vibes&family=Parisienne&family=Rubik&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #000;
+  color: #000 ;
   text-decoration: none;
-	font-family: 'Rubik', sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
