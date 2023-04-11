@@ -8,10 +8,11 @@ import {
 } from './actions'
 
 let storage = localStorage.getItem('carrito')
+let sesion = sessionStorage.getItem('sesion')
 
 const initialState = {
     todos: [],
-    token: {},
+    token: !sesion ? {} : sesion,
     carrito: !storage ? [] : storage.split(',').map((e) => Number(e))
 }
 

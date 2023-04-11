@@ -28,6 +28,7 @@ export default function InicioSesion (){
        axios.post(`http://localhost:3001/usuarios/signin`, input)
        .then((res) => {
             dispatch(logearUsuario(res.data))
+            sessionStorage.setItem('sesion', JSON.stringify(res.data))
             setTimeout(() => {
                 navegate('/profile')
             }, 2000)

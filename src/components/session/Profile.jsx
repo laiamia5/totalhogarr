@@ -10,15 +10,18 @@ export default function Profile (){
    const [datos, setDatos] = useState(token)
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/users/profile/${token.id}`,
+        axios.get(`http://localhost:3001/usuarios/profile/${token.id}`,
         {headers: {
-            authorization: `bearer ${token.token}`
+            authorization: `bearer ${token.token}`,
             }})
         .then((res) => {
             console.log(res.data)
             setDatos(res.data)
         })
-        .catch((err) => console.log(err.response.data))
+        .catch((err) =>{ 
+            console.log(err.response.data)
+            console.log(token)
+        })
     }, [token])
 
 
