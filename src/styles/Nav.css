@@ -11,6 +11,7 @@
     cursor: pointer;
     transition: .5s;
     background-color: inherit;
+    /* font-size: 18px; */
 }
 
 .Nav_contenedor li:hover {
@@ -23,8 +24,9 @@
     display: flex;
     flex-direction: row;
    padding-top: 15px;
-   margin-left: 160px;
    background-color: white;
+   padding-top: 25px;
+   margin-left: 40px;
 
 }
 
@@ -72,9 +74,9 @@
 }
 
 .searchbar_icons_perfil{
-    margin-left: 280px;
+    margin-left: 480px;
     /* opacity: 0.7; */
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: white;
 
 }
@@ -82,14 +84,14 @@
 .searchbar_icons_corazon{
     /* opacity: 0.5; */
     margin-left: 25px;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: inherit;
 
 }
 
 .searchbar_icons_carrito{
     margin-left: 25px;
-    margin-top: 10px;
+    margin-top: 20px;
     /* filter: brightness(80%);  */
     background-color: inherit;
     /* opacity: 5; */
@@ -97,12 +99,11 @@
 }
 
 .nav_logo{
-    width: 100px;
-    position: absolute;
+    width: 150px;
     top: 2px;
     margin-left: 20px;
     background-color: inherit;
-
+    margin-left: 25%;
 }
 
 a{

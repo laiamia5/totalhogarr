@@ -1,0 +1,19 @@
+.contenedor_registro_card{
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 7px;
+    background-color: white;
+    padding-top: 20px;
+}
+
+.contenedor_registro_card p{
+    color: black !important;
+    padding-left: 10px;
+}
+
+.admin_span{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect , useState} from "react";
 import axios from "axios";
+import '../../styles/pedidosAdmin.css'
 
 export default function RegistroAdmin(){
 
@@ -16,17 +17,18 @@ export default function RegistroAdmin(){
     console.log(estado) 
 
     return(
-        <div style={{display: "flex"}}>
+        <div style={{display: "flex", marginTop: "40px", flexWrap: 'wrap'}}>
             {estado?.map((e, index) => {
             return(
-                <div key={index} style={{marginTop:"20px", backgroundColor: 'black', marginLeft: '20px', width: "200px", height: "200px"}}>
-                    <h3>pedido</h3>
+                <div key={index} className="contenedor_registro_card">
+                    <p>cliente: {e.usuario.nombre + ' ' + e.usuario.apellido}</p> 
                     <p>producto: {e.producto.nombre}</p>
                     <p>cantidad: {e.cantidad}</p>
-                    <p>cliente: {e.usuario.nombre + ' ' + e.usuario.apellido}</p> 
                     <p>direccion: {e.direccion}</p>
                     <p>entrega : {e.entrega}</p>
                     <p>pago : {e.pago}</p>
+                    <p>pedido: {e.id}</p>
+                    <div className="admin_span" style={e.entrega == "pendiente" ? {backgroundColor: "red"} : {backgroundColor: "green"} }></div>
                 </div>
                 )
                 

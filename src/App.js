@@ -28,7 +28,7 @@ function App() {
 
   return (
   
-  <div className="App" style={{backgroundColor: 'rgba(231, 231, 231, 0.719)'}}>
+  <div className="App" style={{backgroundColor: 'rgba(231, 231, 231, 0.719)', height: '100vh'}}>
       {location.pathname !== "/inicio-sesion" && <Nav/>}
       <Routes>
         <Route path='/admin' element={<Admin/>}/>

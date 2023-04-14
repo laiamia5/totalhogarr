@@ -11,12 +11,15 @@
 
 .contenedor_padre{
     margin-top: 50px;
+    height: 100%;
 }
 
 .contenedor_card{
     width: 280px;
     height: 100%;
     /* border-left: 1px solid black; */
+    background-color: white;
+    margin-left: 10px;
 }
 .contenedor_card:hover{
     box-shadow: 2px 2px 13px 1px rgba(0, 0, 0, 0.2);
@@ -27,6 +30,7 @@
     font-size: 4vh;
     margin-top: 10px;
     margin-left: 20px;
+    color: rgb(43, 43, 43);
 }
 .contenedor_card > div{
     margin-left: 20px;
@@ -60,11 +64,10 @@
 }
 
 .contenedor_card hr{
-    width: 200px;
+    width: 100%;
     height: 0.5px;
     opacity: 0.3;
     margin-top: 10px;
-    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -74,22 +77,20 @@
     margin-top: 10px;
 }
 
-.div_display{
-    display: none;
-    width: 180px;
-}
+
 
 .contenedor_card:hover .div_display{
     display: inline-block;
 }
 
 .titulo_Carrusel{
-    /* margin-bottom: 30px; */
-    margin-top: 10px;
+    margin-bottom: 30px;
     font-size: 3vh;
+    margin-left: 40px;
+    color: rgb(56, 56, 56);
 }
 
-.contenedor_card > button{
+/* .contenedor_card > button{
     position: absolute;
     height: 35px;
     width: 35px;
@@ -101,6 +102,21 @@
     margin-top: -35px;
     background-color: rgb(194, 190, 190);
     cursor: pointer;
+} */
+.div_display{
+    display: none;
+    width: 190px;
+    display: flex;
+}
+
+.botones_card{
+    border: none;
+    outline: none;
+    background-color: rgb(138, 138, 138) !important;
+    color: rgb(255, 255, 255);
+    border-radius: 7px;
+    width: 120px;
+    height: 30px;
 }
 
 .contenedor_card path{
