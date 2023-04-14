@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { vaciarCarrito } from "../redux/actions";
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+initMercadoPago('TEST-035d8db4-f766-4f9c-a923-c8b1d60b7622')
 
 export default function FormCarrito(props){
+    const [preferenceId, setPreferenceId] = useState(null)
     //cambiar del modelo de compras y poner una prop envio setear en true si el usuario quiere pagar 
     //cargo para que se realice el envio o si lo retira en el local
     const dispatch = useDispatch()
@@ -37,6 +39,10 @@ export default function FormCarrito(props){
         }
 
         dispatch(vaciarCarrito())
+
+        axios.post(`http://localhost:3001/pagar`)
+        .then((res) => setPreferenceId(res.data))
+        .catch((err) => alert("Unexpected error"))
     }
 
     return(
@@ -53,6 +59,7 @@ export default function FormCarrito(props){
                     }}>send</button>
             </form>
             <ToastContainer />
+            {preferenceId !== null && <Wallet initialization={{ preferenceId: preferenceId }} /> }
         </div>
     )
 }
