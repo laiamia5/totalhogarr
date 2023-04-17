@@ -1,10 +1,10 @@
 .contenedor_card_carrito{
-    width: 90%;
-    border: 1px solid black;
-    border-radius: 15px;
+    width: 100%;
+    border-top: 1px solid rgb(179, 179, 179);
     margin-top: 10px;
-    margin-left: 50px;
+    padding-left: 50px;
     display: flex;
+    height: 120px;
 }
 
 .card_carrito_img{
@@ -33,4 +33,12 @@
     box-shadow: 11px 24px 7px -14px rgba(0,0,0,0.16);
     -webkit-box-shadow: 11px 24px 7px -14px rgba(0,0,0,0.16);
     -moz-box-shadow: 11px 24px 7px -14px rgba(0,0,0,0.16);
+}
+
+.contenedor_carrito{
+    background-color: white; 
+    width: 90%;
+    margin-left: 5%; 
+    border-radius: 7px;
+    margin-top: 30px;
 }

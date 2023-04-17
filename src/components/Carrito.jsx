@@ -26,17 +26,17 @@ export default function Carrito (){
 
     if(pedir === false){
         return(
-            <div>
+            <div className='contenedor_carrito'>
                 {carritoCompleto.map((e, index) => {
                    return (
                     <div key={index} className="contenedor_card_carrito">
                         <img src={e.img} alt="imagen" className="card_carrito_img"/>
                         <strong> {e.nombre }</strong>
-                        <p className="card_carrito_precio">${e.precio}</p>
-                        <p>{e.categoria}</p>
+                        <p style={{color: 'red'}}>{e.categoria}</p>
                         <p style={{color: 'red'}}>cantidad: {carrito.filter((ele) => ele == e.id).length}</p>
                         disponibles: <p style={{color: 'red'}}>{e.stock}</p>
                         <button onClick={() => eliminarProd(e.id)} className="card_carrito_button">eliminar</button>
+                        <p className="card_carrito_precio">${e.precio}</p>
                     </div>
                    
                    )

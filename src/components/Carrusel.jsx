@@ -36,7 +36,7 @@ export default function Carrusel (){
                         <div>
                             <strong className="card_nombre">{e.nombre}</strong>
                         </div>
-                        <p className="card_precio">$30.000</p>
+                        <p className="card_precio">${e.precio}</p>
                         <button onClick={() => {
                             agregarCarr(e.id)
                             showToastMessage()

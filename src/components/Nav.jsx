@@ -17,13 +17,15 @@ export default function Nav () {
     setCarrLength(carr.length)
    }, [carr])
 
+   let iniciado = JSON.parse(sessionStorage.getItem('sesion'))
+
     return(
         <div className="Nav_contenedor">
             <div className='contenedor_searchbar'>
                 <ul>
                     <Link to='/'><li>Home</li></Link>
                     <Link to='/admin'><li>admin</li></Link>
-                    <Link to='/inicio-sesion'><li>login</li></Link>
+                    <li>categorias</li>
                 </ul>
                 {/* <input className="searchbar_input" type="text" placeholder="buscar..." /> */}
                 {/* <button>
@@ -31,7 +33,7 @@ export default function Nav () {
                 </button> */}
                 <img src={logo} className="nav_logo" />
 
-                <Link to='/profile'><img className= 'searchbar_icons_perfil ' src={perfil} style={{width: "20px", height: "20px"}}/></Link>
+                <Link to={!iniciado ? '/inicio-sesion' : '/profile'}><img className= 'searchbar_icons_perfil ' src={perfil} style={{width: "20px", height: "20px"}}/></Link>
                 <img className= 'searchbar_icons_corazon ' src={corazon} style={{width: "20px", height: "20px"}}/>
                 <Link to='/carrito'><img className= 'searchbar_icons_carrito' src={carrito} style={{width: "20px", height: "20px"}}/></Link>
                 {carrLength !== 0 && 

@@ -25,15 +25,15 @@ export default function InicioSesion (){
 
     //si estoy logeado y pongo la personita que entre a mi perfil, si no estoy logeado que me lleve a iniciar sesion
     const peticion = async () => {
-       axios.post(`http://localhost:3001/usuarios/signin`, input)
-       .then((res) => {
-            dispatch(logearUsuario(res.data))
-            sessionStorage.setItem('sesion', JSON.stringify(res.data))
-            setTimeout(() => {
-                navegate('/profile')
-            }, 2000)
-       })
-       .catch((err) => alert(err.response.data))
+            axios.post(`http://localhost:3001/usuarios/signin`, input)
+            .then((res) => {
+                 dispatch(logearUsuario(res.data))
+                 sessionStorage.setItem('sesion', JSON.stringify(res.data))
+                 setTimeout(() => {
+                     navegate('/profile')
+                 }, 2000)
+            })
+            .catch((err) => alert(err.response.data))
     }
 
 
