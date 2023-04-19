@@ -21,13 +21,13 @@ export default function RegistroAdmin(){
             {estado?.map((e, index) => {
             return(
                 <div key={index} className="contenedor_registro_card">
-                    <p>cliente: {e.usuario?.nombre + ' ' + e.usuario?.apellido}</p> 
+                    <p>cliente: {e.usuario?.nombre}{e.usuario?.apellido ? e.usuario?.apellido : ' '}</p> 
                     <p>producto: {e.producto?.nombre}</p>
                     <p>cantidad: {e.cantidad}</p>
-                    <p>direccion: {e.direccion}</p>
                     <p>entrega : {e.entrega}</p>
                     <p>pago : {e.pago}</p>
                     <p>pedido: {e.id}</p>
+                    <p>fecha : {e.createdAt.substr(0, 10)}</p>
                     <div className="admin_span" style={e.entrega == "pendiente" ? {backgroundColor: "red"} : {backgroundColor: "green"} }></div>
                 </div>
                 )

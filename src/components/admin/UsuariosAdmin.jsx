@@ -1,5 +1,6 @@
 import React, { useEffect , useState} from "react";
 import axios from "axios"
+import '../../styles/usuariosAdmin.css'
 
 export default function UsuariosAdmin(){
 
@@ -16,10 +17,10 @@ export default function UsuariosAdmin(){
 
 
     return(
-        <div style={{display: "flex"}}>
+        <div style={{display: "flex"}} className="contenedor_usuarios_admin">
             {lista?.map((e, index) => {
                return(
-                    <div key={index} style= {{width: '200px', height: '200px', backgroundColor: 'blue', marginLeft: "20px", marginTop: "20px"}}>
+                    <div key={index} className="contenedor_card_usuarios">
                         <p>nombre: {e.nombre}</p>
                         <p>apellido: {e.apellido}</p>
                         <p>compras: {e.compras.length}</p>

@@ -1,0 +1,13 @@
+.contenedor_card_usuarios{
+        width: 300px;
+        margin-top: 20px;
+        margin-left: 20px;
+        border-radius: 7px;
+        background-color: white ;
+        padding-top: 20px;
+}
+
+.contenedor_card_usuarios p{
+    color: black !important;
+
+}

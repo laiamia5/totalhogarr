@@ -6,6 +6,8 @@ import { obtenerUsuario } from "../../redux/actions"
 import { useDispatch, useSelector } from "react-redux"
 import { logearUsuario } from "../../redux/actions"
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function InicioSesion (){
     //--------ANIMACION SIGNIN SIGNUP----------------------------------------
@@ -38,6 +40,12 @@ export default function InicioSesion (){
 
 
     //-----------------------------REGISTRO--------------------------------
+    
+    const showToastMessage = () => {
+        toast.success('se ha creado su cuenta de manera exitosa!', {
+            position: toast.POSITION.BOTTOM_RIGHT
+        });
+    }
     //hacer formulario controlado
     const [registro, setRegistro] = useState({
         email: "",
@@ -50,6 +58,7 @@ export default function InicioSesion (){
         if(registro.email !== ""){
             axios.post('http://localhost:3001/usuarios/signup', registro )
             .then((res) =>{ 
+                showToastMessage()
                 console.log(res.data)
             })
             .catch((err) => alert(err.response.data)) 
@@ -60,7 +69,7 @@ export default function InicioSesion (){
 
     return(
         <div className="body_inicioSesion">
-
+            <ToastContainer />
         <div class={clases} id="container">
             <div class="form-container sign-up-container">
                 <form action="#"  onSubmit={handleRegistro}>

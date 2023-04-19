@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { vaciarCarrito } from "../redux/actions";
 import axios from 'axios'
@@ -8,14 +7,8 @@ import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 initMercadoPago('TEST-035d8db4-f766-4f9c-a923-c8b1d60b7622')
 
 export default function FormCarrito(props){
-    const [preferenceId, setPreferenceId] = useState(null)
-    //cambiar del modelo de compras y poner una prop envio setear en true si el usuario quiere pagar 
-    //cargo para que se realice el envio o si lo retira en el local
+
     const dispatch = useDispatch()
-    const [lista , setLista] = useState({
-        direccion: "",
-        usuarioId: ""
-    })
 
     const showToastMessage = () => {
         toast.success('su compra fue realizada de manera exitosamente!', {
@@ -23,43 +16,25 @@ export default function FormCarrito(props){
         });
     }
 
-    const enviarCompra = async () => {
-        let arre = []
-        await props.carrito.forEach((e) => {
-            const compra = {
-            productoId: e.id,
-            cantidad: props.cantidad.filter((ele) => ele == e.id ).length ,
-            direccion: lista.direccion,
-            usuarioId: lista.usuarioId
-            }
-            arre.push(compra)
-        })
-        for(const i of arre){
-            axios.post('http://localhost:3001/carrito/comprar', i)
-        }
+    const finalizarCompra = () => {
+        // for(const i of arre){
+        //     axios.post('http://localhost:3001/carrito/comprar', i)
+        // }
 
         dispatch(vaciarCarrito())
-
-        axios.post(`http://localhost:3001/pagar`)
-        .then((res) => setPreferenceId(res.data))
-        .catch((err) => alert("Unexpected error"))
     }
 
     return(
-        <div style={{marginTop: "50px", backgroundColor: "lightblue", width: "300px", height: "200px", position: 'absolute'}}>
-            <form action="">
-                <input style={{marginLeft: "50px"}} type="text" placeholder="direccion" onChange={(e) => setLista({...lista , direccion: e.target.value})}/>
-                <input style={{marginLeft: "50px"}} type="text" placeholder="user id" onChange={(e) => {
-                    setLista({...lista , usuarioId: e.target.value})
-                    console.log(lista)
-                    }}/>
-                <button style={{marginLeft: "50px"}} type="button" onClick={() => {
-                    enviarCompra()
+        <div style={{marginTop: "50px", backgroundColor: "white", width: "70%", height: "70%", position: 'absolute', borderRadius: '15px' , marginLeft: '15%', WebkitBoxShadow: '0px 9px 44px -31px rgba(0,0,0,0.75)',
+        MozBoxShadow: '0px 9px 44px -31px rgba(0,0,0,0.75)',
+        boxShadow: '0px 9px 44px -31px rgba(0,0,0,0.75)'}}>  
+        <div style={{width: '280px', float: 'right', marginTop: '20px', marginRight: '50px', marginTop: '32%'}}>
+            <button style={{width: '100%', height: '45px', borderRadius: '8px', border: 'none', fontSize: '17px', cursor: 'pointer'}} type="button" onClick={() => {
                     showToastMessage()
-                    }}>send</button>
-            </form>
-            <ToastContainer />
-            {preferenceId !== null && <Wallet initialization={{ preferenceId: preferenceId }} /> }
+                }}>pagar en efectivo</button>
+                <ToastContainer />
+                {props.preferenceId !== null && <Wallet initialization={{ preferenceId: props.preferenceId }} /> }
+        </div>    
         </div>
     )
 }
