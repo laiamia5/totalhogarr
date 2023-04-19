@@ -20,7 +20,6 @@ export default function FormCarrito(props){
         // for(const i of arre){
         //     axios.post('http://localhost:3001/carrito/comprar', i)
         // }
-
         dispatch(vaciarCarrito())
     }
 

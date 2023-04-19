@@ -11,6 +11,7 @@ import Profile from './components/session/Profile'
 import {useLocation} from 'react-router-dom'
 import Carrito from './components/Carrito'
 import InicioSesion from './components/session/InicioSesion';
+import Detalle from './components/Detalle'
 
 
 function App() {
@@ -22,8 +23,6 @@ function App() {
 
   useEffect(() => {
       dispatch(TodosLosProductos())
-      console.log(productos)
-      console.log(carr)
   }, [])
 
   return (
@@ -35,6 +34,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/carrito' element={<Carrito/>}/>
+        <Route path='/detalle/:prodId' element={<Detalle/>}/>
         <Route path='/inicio-sesion' element={<InicioSesion/>}/>
         <Route path='/' element={<Home/>}/>
       </Routes>

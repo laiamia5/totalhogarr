@@ -5,6 +5,8 @@ import { eliminarDelCarrito , vaciarCarrito, eliminarCantidadDelCarrito, aumenta
 import FormCarrito from './FormCarrito'
 import axios from 'axios'
 import '../styles/carrito.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Carrito (){
     let dispatch = useDispatch()
@@ -28,6 +30,7 @@ export default function Carrito (){
         }
         setCarritoCompleto(eso)
         setNose(false)
+        localStorage.setItem("carrito", carrito)
     }, [nose])
 
     const eliminarProd = async (id) => {
@@ -47,20 +50,31 @@ export default function Carrito (){
     }
 
     const enviarCompra = async () => {
-        let arre = []
-        await carritoCompleto.forEach((e) => {
-            const compra = {
-                productoId: e.id,
-                cantidad: carrito.filter((ele) => ele == e.id ).length ,
-                usuarioId: 'de42c762-ac8e-4646-b1b3-b4be7dd383eb'
+        let user = sessionStorage.getItem('sesion')
+        if(user){
+            let arre = []
+            await carritoCompleto.forEach((e) => {
+                const compra = {
+                    productoId: e.id,
+                    cantidad: e.cantidad,
+                    usuarioId: 'de42c762-ac8e-4646-b1b3-b4be7dd383eb'
+                }
+                arre.push(compra)
+            })
+            setCompra(arre)
+    
+            axios.post(`http://localhost:3001/pagar`)
+            .then((res) => setPreferenceId(res.data))
+            .catch((err) => alert("Unexpected error"))
+            setFinalizar(true)
+        }else{
+            const showToastMessage = () => {
+                toast.error('inicia sesión en tu cuenta para realizar la compra', {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                });
             }
-            arre.push(compra)
-        })
-        setCompra(arre)
-
-        axios.post(`http://localhost:3001/pagar`)
-        .then((res) => setPreferenceId(res.data))
-        .catch((err) => alert("Unexpected error"))
+            showToastMessage()
+        } 
     }
 
     if(finalizar !== true){
@@ -86,9 +100,9 @@ export default function Carrito (){
                 }
                 <button className="card_carrito_finalizar" onClick={() => {
                     enviarCompra();
-                    setFinalizar(true)
                     }}>finalizar compra</button>
                 <button onClick={() => dispatch(vaciarCarrito())}>vaciar carrito</button>
+                <ToastContainer />
             </div>
         )
     }else{
@@ -98,6 +112,7 @@ export default function Carrito (){
                 ? <FormCarrito style={{ position: 'absolute'}} preferenceId={preferenceId} compra={compra}/>
                 : <p style={{color: 'black'}}>cargando . . .</p>
                 }
+                <ToastContainer />
            </div> 
         )
     }
