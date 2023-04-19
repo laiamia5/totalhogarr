@@ -4,7 +4,9 @@ import {
     LOGOUT_USUARIO, 
     AGREGAR_AL_CARRITO, 
     ELIMINAR_DEL_CARRITO,
-    VACIAR_CARRITO
+    VACIAR_CARRITO,
+    ELIMINAR_CANTIDAD_DEL_CARRITO,
+    AUMENTAR_CANTIDAD_DEL_CARRITO
 } from './actions'
 
 let storage = localStorage.getItem('carrito')
@@ -47,6 +49,20 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 carrito: []
+            }
+        case ELIMINAR_CANTIDAD_DEL_CARRITO :
+            let ese = state.carrito.find((ele) => ele == action.payload )
+            let posicionEliminar = state.carrito.indexOf(ese)
+            state.carrito.splice(posicionEliminar, 1)
+            return{
+                ...state,
+                carrito: state.carrito
+            }
+        case AUMENTAR_CANTIDAD_DEL_CARRITO :
+            state.carrito.push(action.payload)
+            return{
+                ...state,
+                carrito: state.carrito
             }
         default :
             return state

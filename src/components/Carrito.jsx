@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector , useDispatch} from "react-redux";
-import { eliminarDelCarrito , vaciarCarrito} from "../redux/actions";
+import { eliminarDelCarrito , vaciarCarrito, eliminarCantidadDelCarrito, aumentarCantidadDelCarrito} from "../redux/actions";
 import FormCarrito from './FormCarrito'
 import axios from 'axios'
 import '../styles/carrito.css'
@@ -14,16 +14,36 @@ export default function Carrito (){
     let [finalizar, setFinalizar] = useState(false)
     let [compra, setCompra] = useState([])
     const [preferenceId, setPreferenceId] = useState(null)
+    let [nose, setNose] = useState(false)
 
     useEffect(() => {
         let eso = productos.filter(prod => carrito.find( e => e === prod.id))
+        for (const i of eso){
+            let cantidades = carrito.filter((ele) => ele == i.id).length
+            if( cantidades > 1 ){
+                i.cantidad = cantidades
+            }else{
+                i.cantidad = 1
+            }
+        }
         setCarritoCompleto(eso)
-        console.log(carrito)
-    }, [])
+        setNose(false)
+    }, [nose])
 
-    const eliminarProd = (id) => {
-        dispatch(eliminarDelCarrito(id))
-        setCarritoCompleto(carritoCompleto.filter((e) => e.id !== id))
+    const eliminarProd = async (id) => {
+        if(carrito.filter((ele) => ele == id ).length > 1 ){
+                setNose(true)
+                dispatch(eliminarCantidadDelCarrito(id))
+        }else{
+                setCarritoCompleto(carritoCompleto.filter((e) => e.id !== id)) ;
+                dispatch(eliminarDelCarrito(id));
+        } 
+        
+    }
+
+    const sumarProd = (id) => {
+        dispatch(aumentarCantidadDelCarrito(id))
+        setNose(true)
     }
 
     const enviarCompra = async () => {
@@ -52,15 +72,18 @@ export default function Carrito (){
                         <img src={e.img} alt="imagen" className="card_carrito_img"/>
                         <strong> {e.nombre }</strong>
                         <p style={{color: 'red'}}>{e.categoria}</p>
-                        <p style={{color: 'red'}}>cantidad: {carrito.filter((ele) => ele == e.id).length}</p>
+                        <p style={{color: 'red'}}>cantidad: {e.cantidad}</p>
                         disponibles: <p style={{color: 'red'}}>{e.stock}</p>
-                        <button onClick={() => eliminarProd(e.id)} className="card_carrito_button">eliminar</button>
+                        <button onClick={() => eliminarProd(e.id)} className="card_carrito_button">-</button>
+                        <button onClick={() => sumarProd(e.id)} className="card_carrito_button">+</button>
                         <p className="card_carrito_precio">${e.precio}</p>
                     </div>
                    
                    )
                 })}
-                TOTAL: {carritoCompleto.map((e) => e.precio).reduce((A, B) => A + B, 0)}
+                TOTAL: {
+                    carritoCompleto.map((e) => e.precio * e.cantidad).reduce((A, B) => A + B, 0)
+                }
                 <button className="card_carrito_finalizar" onClick={() => {
                     enviarCompra();
                     setFinalizar(true)
