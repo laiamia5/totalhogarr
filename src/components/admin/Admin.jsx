@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CreateProd from "./CreateProd";
 import RegistroAdmin from './RegistroAdmin'
 import UsuariosAdmin from "./UsuariosAdmin";
-import '../../styles/admin.css'
+// import '../../styles/admin.css'
 
 export default function Admin (){
 

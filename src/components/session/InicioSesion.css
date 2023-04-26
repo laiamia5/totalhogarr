@@ -226,6 +226,6 @@
 	width: 40px;
 }
 
-.overlay-panel > h1, p{
+.overlay-panel > h1 > p{
     color: white
 }

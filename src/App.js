@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import Nav from './components/Nav'
 import Admin from './components/admin/Admin'
 import {Routes, Route} from "react-router-dom"
@@ -12,7 +12,10 @@ import {useLocation} from 'react-router-dom'
 import Carrito from './components/Carrito'
 import InicioSesion from './components/session/InicioSesion';
 import Detalle from './components/Detalle'
-
+import ConfigProfile from './components/session/ConfigProfile';
+import Footer from './components/Footer'
+import About from './components/About'
+import Tienda from './components/Tienda'
 
 function App() {
   const dispatch = useDispatch()
@@ -36,8 +39,12 @@ function App() {
         <Route path='/carrito' element={<Carrito/>}/>
         <Route path='/detalle/:prodId' element={<Detalle/>}/>
         <Route path='/inicio-sesion' element={<InicioSesion/>}/>
+        <Route path='/editar-perfil' element={<ConfigProfile/>}/>
+        <Route path='/sobre-nosotros' element={<About/>}/>
+        <Route path='/tienda' element={<Tienda/>}/>
         <Route path='/' element={<Home/>}/>
       </Routes>
+      {location.pathname !== "/inicio-sesion" && <Footer/>}
     </div>
   );
 }

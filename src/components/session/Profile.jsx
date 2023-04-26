@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUsuario } from "../../redux/actions";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Profile (){
     const dispatch = useDispatch()
@@ -47,6 +48,7 @@ export default function Profile (){
                 }}>
                 cerrar sesion
             </button>
+            <Link to='/editar-perfil'>editar perfil</Link>
         </>
     )
 }

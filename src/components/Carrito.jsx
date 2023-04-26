@@ -4,7 +4,7 @@ import { useSelector , useDispatch} from "react-redux";
 import { eliminarDelCarrito , vaciarCarrito, eliminarCantidadDelCarrito, aumentarCantidadDelCarrito} from "../redux/actions";
 import FormCarrito from './FormCarrito'
 import axios from 'axios'
-import '../styles/carrito.css'
+// import '../styles/carrito.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -79,11 +79,11 @@ export default function Carrito (){
 
     if(finalizar !== true){
         return(
-            <div className='contenedor_carrito'>
+            <div className='contenedor_carrito' >
                 {carritoCompleto.map((e, index) => {
                    return (
-                    <div key={index} className="contenedor_card_carrito">
-                        <img src={e.img} alt="imagen" className="card_carrito_img"/>
+                    <div key={index} className="contenedor_card_carrito" style={{width: '90%', height: '100px', display: 'flex'}}>
+                        <img src={e.img} alt="imagen" className="card_carrito_img" style={{maxWidth: '100px'}}/>
                         <strong> {e.nombre }</strong>
                         <p style={{color: 'red'}}>{e.categoria}</p>
                         <p style={{color: 'red'}}>cantidad: {e.cantidad}</p>

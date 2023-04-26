@@ -1,6 +1,6 @@
 import React, { useEffect , useState} from "react";
 import axios from "axios";
-import '../../styles/pedidosAdmin.css'
+// import '../../styles/pedidosAdmin.css'
 
 export default function RegistroAdmin(){
 

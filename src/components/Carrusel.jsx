@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../styles/Carrusel.css'
+// import '../styles/Carrusel.css'
 import { useDispatch, useSelector } from "react-redux";
 import { agregarAlCarrito } from "../redux/actions";
 import { ToastContainer, toast } from 'react-toastify';
